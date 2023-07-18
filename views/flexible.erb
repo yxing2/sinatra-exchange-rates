@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>First currency selected</title>
+</head>
+
+<body>
+<h1>Convert <%= @select_code %> </h1>
+<p>Go <a href = "/">back</a></p>
+
+<ul>
+  <% @currency.each do |code|%>
+  <li>
+    <a href = "/<%= code %>">Convert 1 <%= @select_code %> to <%= code %></a>
+  </li>
+  <% end %>
+</ul>
+</body>
+</html>
