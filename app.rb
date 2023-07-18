@@ -1,9 +1,15 @@
 require "sinatra"
 require "sinatra/reloader"
+require "http"
+require "json"
 
 get("/") do
-  "
-  <h1>Welcome to your Sinatra App!</h1>
-  <p>Define some routes in app.rb</p>
-  "
+  currency_url = "https://api.exchangerate.host/symbols"
+  raw_response = HTTP.get(currency_url).to_s
+  parsed_response = JSON.parse(raw_response)
+
+  results = parsed_response.fetch("symbols")
+  @currency = results.keys
+
+erb(:homepage)
 end
