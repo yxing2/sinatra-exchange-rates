@@ -13,10 +13,14 @@ get("/") do
 erb(:homepage)
 end
 
-get ("/:currency_url") do
-  @select_code = params.fetch("currency_url")
+get ("/:currency_one") do
+  @code_one = params.fetch("currency_one")
   @currency = results.keys
-
-
 erb(:flexible)
+end
+
+get ("/:currency_one/currency_two") do
+  @code_two = params.fetch("currency_two")
+  @currency = results.keys
+erb(:convert)
 end

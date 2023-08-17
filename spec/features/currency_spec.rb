@@ -17,7 +17,7 @@ describe "root URL" do
     expect(page).to have_content("AOA")
     expect(page).to have_content("TMT")
     expect(page).to_not have_content("BOB"),
-      "Expected not to find the symbol 'BOB', hardcoded into the HTML but found it anywa, points: 1y."
+      "Expected not to find the symbol 'BOB', hardcoded into the HTML but found it anyway."
   end
 end
 
